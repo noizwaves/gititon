@@ -29,7 +29,7 @@ class AppConfig {
         archiver.destDirectory = File(repoPath.toUri())
         archiver.extract()
 
-        val servletRegistrationBean = ServletRegistrationBean(GitServlet(), "/git/*")
+        val servletRegistrationBean = ServletRegistrationBean(GitServlet(), "/code/*")
         servletRegistrationBean.addInitParameter("base-path", basePath.toString())
         servletRegistrationBean.addInitParameter("export-all", "true")
         return servletRegistrationBean
