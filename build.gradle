@@ -52,5 +52,8 @@ dependencies {
 	compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit', version: '5.0.1.201806211838-r'
 	compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit.http.server', version: '5.0.1.201806211838-r'
 
+	// https://mvnrepository.com/artifact/org.codehaus.plexus/plexus-archiver
+	compile group: 'org.codehaus.plexus', name: 'plexus-archiver', version: '3.6.0'
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
