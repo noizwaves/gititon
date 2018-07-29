@@ -21,14 +21,15 @@ class AppConfig {
         val repoPath = Paths.get(basePath.toString(), "repo.git")
         Files.createDirectories(repoPath)
 
-        // 1. Grab the repo artifact to serve
+        // Grab the repo artifact to serve
         val repoArtifact = javaClass.classLoader.getResource("repo.tar.gz")
 
-        // 2. Extract artifact to repo dir
+        // Extract artifact to repo dir
         val archiver = TarGZipUnArchiver(File(repoArtifact.toURI()))
         archiver.destDirectory = File(repoPath.toUri())
         archiver.extract()
 
+        // Set JGit parameters
         val servletRegistrationBean = ServletRegistrationBean(GitServlet(), "/code/*")
         servletRegistrationBean.addInitParameter("base-path", basePath.toString())
         servletRegistrationBean.addInitParameter("export-all", "true")
