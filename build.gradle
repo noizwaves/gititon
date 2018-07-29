@@ -48,7 +48,9 @@ dependencies {
 	compile('com.fasterxml.jackson.module:jackson-module-kotlin')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
 	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
-        compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit', version: '5.0.1.201806211838-r'
-        compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit.http.server', version: '5.0.1.201806211838-r'
+
+	compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit', version: '5.0.1.201806211838-r'
+	compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit.http.server', version: '5.0.1.201806211838-r'
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
