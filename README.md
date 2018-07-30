@@ -4,6 +4,7 @@ Proof of concept Cloud Native Git server.
 
 Hosts the resource repository from `src/main/resources/repo.tar.gz`
 inside of a [Spring Boot app](http://localhost:8080/code/repo.git)
+using the [JGit GitServlet](https://www.eclipse.org/jgit/).
 
 ## Quickstart
 
