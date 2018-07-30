@@ -1,7 +1,7 @@
 package io.noizwaves.gititon
 
-import org.codehaus.plexus.archiver.tar.TarGZipUnArchiver
 import org.eclipse.jgit.http.server.GitServlet
+import org.rauschig.jarchivelib.ArchiverFactory
 import org.springframework.boot.web.servlet.ServletRegistrationBean
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -25,9 +25,11 @@ class AppConfig {
         val repoArtifact = javaClass.classLoader.getResource("repo.tar.gz")
 
         // Extract artifact to repo dir
-        val archiver = TarGZipUnArchiver(File(repoArtifact.toURI()))
-        archiver.destDirectory = File(repoPath.toUri())
-        archiver.extract()
+        val archive = File(repoArtifact.toURI())
+        val destination = File(repoPath.toUri())
+        ArchiverFactory
+                .createArchiver("tar", "gz")
+                .extract(archive, destination)
 
         // Set JGit parameters
         val servletRegistrationBean = ServletRegistrationBean(GitServlet(), "/code/*")
